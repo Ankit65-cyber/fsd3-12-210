@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samsung Galaxy A35 5G</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f5f5f5;
+            color: #111;
+        }
+
+        /* NAVBAR */
+
+        nav {
+            height: 70px;
+            background: #000;
+            color: white;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 8%;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 35px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
+        }
+
+        nav ul li a:hover {
+            color: #aaa;
+        }
+
+        .buy-nav {
+            background: white;
+            color: black;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+
+        /* HERO */
+
+        .hero {
+            min-height: 650px;
+
+            background: #000;
+            color: white;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 70px 10%;
+            overflow: hidden;
+        }
+
+        .hero-text {
+            width: 48%;
+        }
+
+        .small-text {
+            color: #aaa;
+            font-size: 14px;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: 64px;
+            line-height: 1.05;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #b7d5ff;
+        }
+
+        .hero p {
+            color: #bbb;
+            font-size: 18px;
+            line-height: 1.7;
+            max-width: 550px;
+            margin-bottom: 30px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 14px 28px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .primary {
+            background: white;
+            color: black;
+        }
+
+        .secondary {
+            border: 1px solid white;
+            color: white;
+        }
+
+
+        /* PHONE */
+
+        .phone-area {
+            width: 42%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .phone {
+            width: 260px;
+            height: 530px;
+
+            background: linear-gradient(
+                145deg,
+                #e7e7e7,
+                #888,
+                #d5d5d5
+            );
+
+            border: 7px solid #222;
+            border-radius: 38px;
+
+            position: relative;
+
+            box-shadow:
+                0 0 40px rgba(255,255,255,0.15),
+                0 30px 70px rgba(0,0,0,0.8);
+
+            transform: rotate(-5deg);
+        }
+
+        /* SCREEN */
+
+        .display {
+            position: absolute;
+
+            top: 8px;
+            left: 8px;
+            right: 8px;
+            bottom: 8px;
+
+            border-radius: 30px;
+
+            background:
+                radial-gradient(circle at 70% 30%, #52658a, transparent 25%),
+                radial-gradient(circle at 30% 70%, #1e3a5f, transparent 30%),
+                linear-gradient(150deg, #020617, #172554, #0f172a);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .display-text {
+            text-align: center;
+        }
+
+        .display-text h2 {
+            font-size: 25px;
+            letter-spacing: 2px;
+        }
+
+        .display-text p {
+            font-size: 11px;
+            color: #aaa;
+            margin-top: 8px;
+        }
+
+        /* CAMERA HOLE */
+
+        .notch {
+            position: absolute;
+
+            top: 14px;
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            width: 12px;
+            height: 12px;
+
+            background: #000;
+            border-radius: 50%;
+            z-index: 2;
+        }
+
+
+        /* FEATURES */
+
+        .features {
+            padding: 80px 8%;
+            background: white;
+            text-align: center;
+        }
+
+        .features h2 {
+            font-size: 40px;
+            margin-bottom: 50px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .feature {
+            padding: 30px 20px;
+            background: #f7f7f7;
+            border-radius: 15px;
+
+            transition: 0.3s;
+        }
+
+        .feature:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+        }
+
+        .icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .feature h3 {
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+
+        .feature p {
+            color: #666;
+            line-height: 1.5;
+        }
+
+
+        /* CAMERA SECTION */
+
+        .camera-section {
+            min-height: 500px;
+
+            background: #111;
+            color: white;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 70px 10%;
+        }
+
+        .camera-text {
+            width: 45%;
+        }
+
+        .camera-text h2 {
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+
+        .camera-text h2 span {
+            color: #9cc4ff;
+        }
+
+        .camera-text p {
+            color: #aaa;
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        .camera-box {
+            width: 400px;
+            height: 300px;
+
+            background: linear-gradient(
+                135deg,
+                #202020,
+                #050505
+            );
+
+            border-radius: 25px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+
+        .camera-lens {
+            width: 160px;
+            height: 160px;
+
+            border-radius: 50%;
+
+            background: #111;
+            border: 20px solid #444;
+
+            box-shadow:
+                0 0 0 10px #222,
+                inset 0 0 20px #000;
+        }
+
+
+        /* SPECS */
+
+        .specs {
+            padding: 80px 8%;
+            background: #f5f5f5;
+        }
+
+        .specs h2 {
+            text-align: center;
+            font-size: 40px;
+            margin-bottom: 45px;
+        }
+
+        .spec-grid {
+            max-width: 900px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+
+            gap: 15px;
+        }
+
+        .spec {
+            background: white;
+
+            padding: 20px;
+
+            border-radius: 10px;
+
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .spec span {
+            color: #777;
+        }
+
+
+        /* PRICE */
+
+        .price-section {
+            background: white;
+
+            text-align: center;
+
+            padding: 80px 20px;
+        }
+
+        .price-section h2 {
+            font-size: 38px;
+        }
+
+        .price {
+            font-size: 48px;
+            font-weight: bold;
+
+            margin: 20px;
+
+            color: #111;
+        }
+
+        .buy-btn {
+            display: inline-block;
+
+            background: #000;
+            color: white;
+
+            padding: 16px 45px;
+
+            border-radius: 30px;
+
+            text-decoration: none;
+
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .buy-btn:hover {
+            background: #333;
+        }
+
+
+        /* FOOTER */
+
+        footer {
+            background: #000;
+            color: #888;
+
+            text-align: center;
+
+            padding: 25px;
+        }
+
+
+        /* RESPONSIVE */
+
+        @media(max-width: 900px) {
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-text {
+                width: 100%;
+            }
+
+            .buttons {
+                justify-content: center;
+            }
+
+            .phone-area {
+                width: 100%;
+                margin-top: 50px;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .camera-section {
+                flex-direction: column;
+                text-align: center;
+                gap: 40px;
+            }
+
+            .camera-text {
+                width: 100%;
+            }
+        }
+
+
+        @media(max-width: 600px) {
+
+            nav ul {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 43px;
+            }
+
+            .feature-grid,
+            .spec-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .camera-box {
+                width: 300px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- NAVIGATION -->
+
+    <nav>
+
+        <div class="logo">
+            SAMSUNG
+        </div>
+
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#camera">Camera</a></li>
+            <li><a href="#specs">Specs</a></li>
+        </ul>
+
+        <a href="#buy" class="buy-nav">
+            Buy Now
+        </a>
+
+    </nav>
+
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div class="hero-text">
+
+            <div class="small-text">
+                GALAXY A35 5G
+            </div>
+
+            <h1>
+                Awesome.<br>
+                <span>Just like that.</span>
+            </h1>
+
+            <p>
+                Experience a stunning display, powerful performance
+                and an incredible camera experience with the
+                Samsung Galaxy A35 5G.
+            </p>
+
+            <div class="buttons">
+
+                <a href="#buy" class="btn primary">
+                    Buy Now
+                </a>
+
+                <a href="#specs" class="btn secondary">
+                    Explore
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- PHONE -->
+
+        <div class="phone-area">
+
+            <div class="phone">
+
+                <div class="display">
+
+                    <div class="notch"></div>
+
+                    <div class="display-text">
+
+                        <h2>GALAXY A35</h2>
+
+                        <p>5G</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FEATURES -->
+
+    <section class="features" id="features">
+
+        <h2>Powerful in Every Way</h2>
+
+        <div class="feature-grid">
+
+
+            <div class="feature">
+
+                <div class="icon">📱</div>
+
+                <h3>Super AMOLED</h3>
+
+                <p>
+                    Enjoy bright and immersive visuals
+                    on the large AMOLED display.
+                </p>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="icon">📸</div>
+
+                <h3>Awesome Camera</h3>
+
+                <p>
+                    Capture detailed photos and
+                    stunning moments wherever you go.
+                </p>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="icon">⚡</div>
+
+                <h3>Fast Performance</h3>
+
+                <p>
+                    Smooth multitasking and gaming
+                    powered by a capable processor.
+                </p>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="icon">🔋</div>
+
+                <h3>Long Battery</h3>
+
+                <p>
+                    Stay connected throughout your day
+                    with a powerful battery.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CAMERA -->
+
+    <section class="camera-section" id="camera">
+
+        <div class="camera-text">
+
+            <h2>
+                Capture<br>
+                <span>every moment.</span>
+            </h2>
+
+            <p>
+                From everyday snapshots to beautiful
+                night shots, the Galaxy A35 camera system
+                is designed to help you capture more.
+            </p>
+
+        </div>
+
+
+        <div class="camera-box">
+
+            <div class="camera-lens"></div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SPECS -->
+
+    <section class="specs" id="specs">
+
+        <h2>Galaxy A35 5G Specifications</h2>
+
+        <div class="spec-grid">
+
+            <div class="spec">
+                <span>Display</span>
+                <strong>6.6" Super AMOLED</strong>
+            </div>
+
+            <div class="spec">
+                <span>Refresh Rate</span>
+                <strong>120 Hz</strong>
+            </div>
+
+            <div class="spec">
+                <span>Rear Camera</span>
+                <strong>50 MP + 8 MP + 5 MP</strong>
+            </div>
+
+            <div class="spec">
+                <span>Front Camera</span>
+                <strong>13 MP</strong>
+            </div>
+
+            <div class="spec">
+                <span>Processor</span>
+                <strong>Exynos 1380</strong>
+            </div>
+
+            <div class="spec">
+                <span>RAM</span>
+                <strong>8 GB</strong>
+            </div>
+
+            <div class="spec">
+                <span>Storage</span>
+                <strong>128 / 256 GB</strong>
+            </div>
+
+            <div class="spec">
+                <span>Network</span>
+                <strong>5G</strong>
+            </div>
+
+            <div class="spec">
+                <span>Battery</span>
+                <strong>5000 mAh</strong>
+            </div>
+
+            <div class="spec">
+                <span>OS</span>
+                <strong>Android</strong>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PRICE -->
+
+    <section class="price-section" id="buy">
+
+        <h2>Samsung Galaxy A35 5G</h2>
+
+        <p>
+            Premium design. Powerful performance.
+        </p>
+
+        <div class="price">
+            ₹27,999
+        </div>
+
+        <a href="#" class="buy-btn">
+            Buy Now →
+        </a>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        © 2026 Samsung Galaxy A35 5G
+
+    </footer>
+
+
+</body>
+</html>
