@@ -1,15 +1,49 @@
 import http from "http";
-import { getUsers, addUser } from "./users.js";
+
+import {
+  addUser,
+  getAllUsers,
+  getUserById,
+  updateUser,
+  deleteUser,
+} from "./users.js";
 
 const server = http.createServer((req, res) => {
-
   if (req.url === "/api/users" && req.method === "GET") {
+    res.end(JSON.stringify(getAllUsers()));
+  } else if (req.url === "/api/users" && req.method === "POST") {
+    let body = "";
 
-    res.end(JSON.stringify(getUsers()));
+    req.on("data", (chunk) => {
+      body += chunk;
+    });
 
-  } 
-  
-  else if (req.url === "/api/users" && req.method === "POST") {
+    req.on("end", () => {
+      const user = JSON.parse(body);
+      const userCreated = addUser(user);
+
+      res.end(
+        JSON.stringify({
+          msg: "user added",
+          userCreated,
+        }),
+      );
+    });
+  } else if (req.url.startsWith("/api/users/") && req.method === "GET") {
+    const userId = Number(req.url.split("/").pop());
+    const userFound = getUserById(userId);
+
+    if (!userFound) {
+      res.end(
+        JSON.stringify({
+          msg: "User not found",
+        }),
+      );
+    } else {
+      res.end(JSON.stringify(userFound));
+    }
+  } else if (req.url.startsWith("/api/users/") && req.method === "PUT") {
+    const userId = Number(req.url.split("/").pop());
 
     let body = "";
 
@@ -18,50 +52,42 @@ const server = http.createServer((req, res) => {
     });
 
     req.on("end", () => {
-
       const user = JSON.parse(body);
+      const userUpdated = updateUser(userId, user);
 
-      const userCreated = addUser(user);
-
-      res.end(JSON.stringify({
-        msg: "user added",
-        userCreated
-      }));
-
+      if (!userUpdated) {
+        res.end(
+          JSON.stringify({
+            msg: "User not found",
+          }),
+        );
+      } else {
+        res.end(JSON.stringify(userUpdated));
+      }
     });
+  } else if (req.url.startsWith("/api/users/") && req.method === "DELETE") {
+    const userId = Number(req.url.split("/").pop());
+    const isDeleted = deleteUser(userId);
 
-  } 
-  
-  else if (req.url === "/api/users/1" && req.method === "GET") {
-
-    res.end(JSON.stringify({
-      msg: "single user with id 1"
-    }));
-
-  } 
-  
-  else if (req.url === "/api/users/1" && req.method === "PUT") {
-
-    res.end(JSON.stringify({
-      msg: "update user 1"
-    }));
-
-  } 
-  
-  else if (req.url === "/api/users/1" && req.method === "DELETE") {
-
-    res.end(JSON.stringify({
-      msg: "remove 1"
-    }));
-
-  } 
-  
-  else {
-
+    if (!isDeleted) {
+      res.end(
+        JSON.stringify({
+          msg: "User not found",
+        }),
+      );
+    } else {
+      res.end(
+        JSON.stringify({
+          msg: "user deleted",
+        }),
+      );
+    }
+  } else {
     res.statusCode = 404;
     res.end();
-
   }
 });
 
-server.listen(3000, () => console.log("prg7 is running"));
+server.listen(3000, () => {
+  console.log("prg7 is running");
+});
