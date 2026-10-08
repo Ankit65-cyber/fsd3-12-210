@@ -2,10 +2,10 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "prg1.js",
+  "main": "prg3.js",
   "scripts": {
-    "start": "node prg1.js",
-    "dev": "nodemon prg1.js"
+    "start": "node prg3.js",
+    "dev": "nodemon prg3.js"
   },
   "keywords": [],
   "author": "",
@@ -18,3 +18,4 @@
     "express": "^5.2.1"
   }
 }
+
